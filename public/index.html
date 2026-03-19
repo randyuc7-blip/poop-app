@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poop Pickup Service</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 60px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    p {
+      text-align: center;
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    input,
+    select,
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    select {
+      background: white;
+      color: #555;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: linear-gradient(45deg, transparent 50%, #555 50%),
+        linear-gradient(135deg, #555 50%, transparent 50%);
+      background-position: calc(100% - 20px) calc(50% - 3px),
+        calc(100% - 14px) calc(50% - 3px);
+      background-size: 6px 6px, 6px 6px;
+      background-repeat: no-repeat;
+      padding-right: 40px;
+    }
+
+    button {
+      background: #000;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #333;
+    }
+
+    .message {
+      text-align: center;
+      display: none;
+      margin-top: 15px;
+    }
+
+    .message.success {
+      color: green;
+    }
+
+    .message.error {
+      color: #b00020;
+    }
+
+    .logo {
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">Clean Yard Co.</div>
+
+    <h1>We Handle the Dirty Work</h1>
+    <p>Schedule your dog poop pickup in seconds.</p>
+
+    <form id="requestForm">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input
+        type="tel"
+        name="phone"
+        id="phone"
+        placeholder="Your Phone Number"
+        inputmode="numeric"
+        pattern="[0-9]+"
+        required
+      >
+      <input type="text" name="address" placeholder="Your Address" required>
+      <input type="date" name="date" id="pickupDate" required>
+      <select name="serviceType" required>
+        <option value="">Select Service</option>
+        <option value="one-time">One-Time</option>
+        <option value="monthly">Monthly</option>
+      </select>
+
+      <button type="submit">Schedule Pickup</button>
+    </form>
+
+    <div class="message success" id="successMessage">
+      Thanks. Your request was submitted successfully. We'll contact you shortly.
+    </div>
+
+    <div class="message error" id="errorMessage">
+      Something went wrong. Please try again.
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('requestForm');
+    const phoneInput = document.getElementById('phone');
+    const pickupDateInput = document.getElementById('pickupDate');
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    const year = tomorrow.getFullYear();
+    const month = String(tomorrow.getMonth() + 1).padStart(2, '0');
+    const day = String(tomorrow.getDate()).padStart(2, '0');
+
+    pickupDateInput.min = `${year}-${month}-${day}`;
+
+    phoneInput.addEventListener('input', () => {
+      phoneInput.value = phoneInput.value.replace(/\D/g, '');
+    });
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      successMessage.style.display = 'none';
+      errorMessage.style.display = 'none';
+
+      const formData = new FormData(form);
+      const data = {
+        name: formData.get('name'),
+        phone: formData.get('phone'),
+        address: formData.get('address'),
+        date: formData.get('date'),
+        serviceType: formData.get('serviceType')
+      };
+
+      try {
+        const response = await fetch('/api/requests', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        if (!response.ok) {
+          throw new Error('Request failed');
+        }
+
+        successMessage.textContent =
+          `Thanks, ${data.name}. Your ${data.serviceType} service request was received. We'll contact you shortly.`;
+        successMessage.style.display = 'block';
+        form.reset();
+      } catch (error) {
+        errorMessage.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
