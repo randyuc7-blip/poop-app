@@ -3,189 +3,286 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Poop Pickup Service</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7f7f7;
-      margin: 0;
-      padding: 0;
-    }
-
-    .container {
-      max-width: 500px;
-      margin: 60px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 10px;
-    }
-
-    p {
-      text-align: center;
-      color: #555;
-      margin-bottom: 25px;
-    }
-
-    input,
-    select,
-    button {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-      font-size: 16px;
-      box-sizing: border-box;
-    }
-
-    select {
-      background: white;
-      color: #555;
-      appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      background-image: linear-gradient(45deg, transparent 50%, #555 50%),
-        linear-gradient(135deg, #555 50%, transparent 50%);
-      background-position: calc(100% - 20px) calc(50% - 3px),
-        calc(100% - 14px) calc(50% - 3px);
-      background-size: 6px 6px, 6px 6px;
-      background-repeat: no-repeat;
-      padding-right: 40px;
-    }
-
-    button {
-      background: #000;
-      color: white;
-      border: none;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    button:hover {
-      background: #333;
-    }
-
-    .message {
-      text-align: center;
-      display: none;
-      margin-top: 15px;
-    }
-
-    .message.success {
-      color: green;
-    }
-
-    .message.error {
-      color: #b00020;
-    }
-
-    .logo {
-      text-align: center;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-  </style>
+  <title>Prime Finish Mobile Detailing | Premium Car Detailing That Comes To You</title>
+  <meta
+    name="description"
+    content="Premium mobile car detailing for busy professionals. We come to your home or office, restore your vehicle to showroom condition, and make booking easy."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <div class="container">
-    <div class="logo">Clean Yard Co.</div>
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="/">
+        <span class="brand-mark">PF</span>
+        <span>
+          <strong>Prime Finish</strong>
+          <small>Mobile Detailing</small>
+        </span>
+      </a>
 
-    <h1>We Handle the Dirty Work</h1>
-    <p>Schedule your dog poop pickup in seconds.</p>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
 
-    <form id="requestForm">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input
-        type="tel"
-        name="phone"
-        id="phone"
-        placeholder="Your Phone Number"
-        inputmode="numeric"
-        pattern="[0-9]+"
-        required
-      >
-      <input type="text" name="address" placeholder="Your Address" required>
-      <input type="date" name="date" id="pickupDate" required>
-      <select name="serviceType" required>
-        <option value="">Select Service</option>
-        <option value="one-time">One-Time</option>
-        <option value="monthly">Monthly</option>
-      </select>
-
-      <button type="submit">Schedule Pickup</button>
-    </form>
-
-    <div class="message success" id="successMessage">
-      Thanks. Your request was submitted successfully. We'll contact you shortly.
+      <nav class="site-nav" id="site-nav">
+        <a href="/">Home</a>
+        <a href="/services.html">Services</a>
+        <a href="/how-it-works.html">How It Works</a>
+        <a href="/results.html">Results</a>
+        <a href="/reviews.html">Reviews</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html" class="button button-primary button-nav">Book Your Detail</a>
+      </nav>
     </div>
+  </header>
 
-    <div class="message error" id="errorMessage">
-      Something went wrong. Please try again.
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Premium Mobile Car Detailing</p>
+          <h1>Showroom-level results without leaving home or the office.</h1>
+          <p class="lead">
+            We come to you, handle everything, and restore your vehicle with premium care. Fast booking,
+            clear packages, and visible results backed by our make-it-right promise.
+          </p>
+
+          <div class="cta-row">
+            <a class="button button-primary" href="/contact.html">Book Your Detail</a>
+            <a class="button button-secondary" href="/services.html">See Packages</a>
+          </div>
+
+          <div class="trust-row">
+            <div>
+              <strong>Mobile convenience</strong>
+              <span>Home, office, apartment</span>
+            </div>
+            <div>
+              <strong>Simple packages</strong>
+              <span>No confusing add-on maze</span>
+            </div>
+            <div>
+              <strong>Make-it-right promise</strong>
+              <span>Visible results or we fix it</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-top">
+            <span>Most booked package</span>
+            <strong>Signature Detail</strong>
+          </div>
+          <ul class="feature-list">
+            <li>Exterior hand wash and paint-safe drying</li>
+            <li>Deep interior vacuum, wipe-down, and glass</li>
+            <li>Seats, mats, trim, and finishing touches</li>
+            <li>Usually completed in 2 to 3 hours onsite</li>
+          </ul>
+          <a class="button button-primary button-block" href="/contact.html">Get Instant Quote</a>
+          <p class="helper-text">Text us now: <a href="sms:+13125551234">(312) 555-1234</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Why Busy Owners Choose Us</p>
+          <h2>Built around trust, clarity, and your schedule.</h2>
+        </div>
+
+        <div class="card-grid three-up">
+          <article class="info-card">
+            <h3>We come to you</h3>
+            <p>Your car gets detailed while you work, relax, or handle your day.</p>
+          </article>
+          <article class="info-card">
+            <h3>No confusing packages</h3>
+            <p>Three clear options so you know what you are getting right away.</p>
+          </article>
+          <article class="info-card">
+            <h3>Premium, not rushed</h3>
+            <p>Careful work, visible results, and a finish you will feel proud driving.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section accent-section">
+      <div class="container split-layout">
+        <div>
+          <p class="eyebrow">Popular Packages</p>
+          <h2>Simple options with premium results.</h2>
+          <p class="section-text">
+            Start with a quick refresh or go all-in on a full restoration feel. Every package is mobile,
+            professionally finished, and designed to save you time.
+          </p>
+        </div>
+
+        <div class="package-stack">
+          <article class="package-card">
+            <div class="package-head">
+              <h3>Essential Refresh</h3>
+              <span>From $129</span>
+            </div>
+            <p>For well-kept vehicles that need a clean, polished reset.</p>
+          </article>
+          <article class="package-card featured">
+            <div class="package-head">
+              <h3>Signature Detail</h3>
+              <span>From $229</span>
+            </div>
+            <p>Our most popular full interior and exterior detail for a dramatic improvement.</p>
+          </article>
+          <article class="package-card">
+            <div class="package-head">
+              <h3>Executive Detail</h3>
+              <span>From $349</span>
+            </div>
+            <p>Premium deep-clean service for owners who want the closest thing to showroom condition.</p>
+          </article>
+          <a class="button button-secondary" href="/services.html">See Full Package Details</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">How It Works</p>
+          <h2>Three simple steps from dirty to dialed-in.</h2>
+        </div>
+
+        <div class="steps-grid">
+          <article class="step-card">
+            <span>1</span>
+            <h3>Choose your package</h3>
+            <p>Select the service that fits your vehicle and level of clean.</p>
+          </article>
+          <article class="step-card">
+            <span>2</span>
+            <h3>Pick your time</h3>
+            <p>Book a home or office visit with a short form or quick text.</p>
+          </article>
+          <article class="step-card">
+            <span>3</span>
+            <h3>We handle the rest</h3>
+            <p>We arrive ready, detail onsite, and leave your car looking transformed.</p>
+          </article>
+        </div>
+
+        <div class="centered-cta">
+          <a class="button button-primary" href="/how-it-works.html">See How It Works</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container results-strip">
+        <div class="section-heading section-heading-light">
+          <p class="eyebrow">Results</p>
+          <h2>The difference should be obvious at a glance.</h2>
+          <p class="section-text">
+            From dusty interiors to glossless paint, we focus on the areas owners notice first and remember most.
+          </p>
+        </div>
+
+        <div class="gallery-preview">
+          <figure class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80" alt="Detailed luxury sedan exterior">
+            <figcaption>Exterior gloss restored</figcaption>
+          </figure>
+          <figure class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=900&q=80" alt="Clean car interior with premium finish">
+            <figcaption>Interior reset and finish</figcaption>
+          </figure>
+        </div>
+
+        <div class="centered-cta">
+          <a class="button button-secondary light" href="/results.html">View Gallery</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container split-layout">
+        <div>
+          <p class="eyebrow">Reviews</p>
+          <h2>Trust built through consistent results.</h2>
+          <p class="section-text">
+            The first win is making booking feel easy. The second is handing back a car that looks noticeably better.
+          </p>
+        </div>
+
+        <div class="review-stack">
+          <blockquote class="review-card">
+            <p>"They detailed my SUV in my office parking lot while I worked. It looked better than when I bought it."</p>
+            <cite>Rachel M. | River North</cite>
+          </blockquote>
+          <blockquote class="review-card">
+            <p>"Clear pricing, no hassle, and the interior looked brand new. Easily the best mobile detail I have used."</p>
+            <cite>James T. | West Loop</cite>
+          </blockquote>
+          <a class="button button-secondary" href="/reviews.html">Read More Reviews</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section callout-section">
+      <div class="container callout-shell">
+        <div>
+          <p class="eyebrow">Ready When You Are</p>
+          <h2>Book in minutes and let us bring the detail shop to you.</h2>
+        </div>
+        <div class="cta-row">
+          <a class="button button-primary" href="/contact.html">Book Your Detail</a>
+          <a class="button button-secondary" href="/contact.html#quote-form">Get Instant Quote</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand brand-footer" href="/">
+          <span class="brand-mark">PF</span>
+          <span>
+            <strong>Prime Finish</strong>
+            <small>Mobile Detailing</small>
+          </span>
+        </a>
+        <p>Premium mobile detailing for drivers who value time, trust, and visible results.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <a href="/services.html">Services</a>
+        <a href="/how-it-works.html">How It Works</a>
+        <a href="/results.html">Results</a>
+      </div>
+      <div>
+        <h3>Company</h3>
+        <a href="/reviews.html">Reviews</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+      <div>
+        <h3>Book</h3>
+        <a href="tel:+13125551234">(312) 555-1234</a>
+        <a href="sms:+13125551234">Text Us Now</a>
+        <a href="mailto:hello@primefinishmobile.com">hello@primefinishmobile.com</a>
+      </div>
     </div>
-  </div>
+  </footer>
 
-  <script>
-    const form = document.getElementById('requestForm');
-    const phoneInput = document.getElementById('phone');
-    const pickupDateInput = document.getElementById('pickupDate');
-    const successMessage = document.getElementById('successMessage');
-    const errorMessage = document.getElementById('errorMessage');
-
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-
-    const year = tomorrow.getFullYear();
-    const month = String(tomorrow.getMonth() + 1).padStart(2, '0');
-    const day = String(tomorrow.getDate()).padStart(2, '0');
-
-    pickupDateInput.min = `${year}-${month}-${day}`;
-
-    phoneInput.addEventListener('input', () => {
-      phoneInput.value = phoneInput.value.replace(/\D/g, '');
-    });
-
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
-
-      successMessage.style.display = 'none';
-      errorMessage.style.display = 'none';
-
-      const formData = new FormData(form);
-      const data = {
-        name: formData.get('name'),
-        phone: formData.get('phone'),
-        address: formData.get('address'),
-        date: formData.get('date'),
-        serviceType: formData.get('serviceType')
-      };
-
-      try {
-        const response = await fetch('/api/requests', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        });
-
-        if (!response.ok) {
-          throw new Error('Request failed');
-        }
-
-        successMessage.textContent =
-          `Thanks, ${data.name}. Your ${data.serviceType} service request was received. We'll contact you shortly.`;
-        successMessage.style.display = 'block';
-        form.reset();
-      } catch (error) {
-        errorMessage.style.display = 'block';
-      }
-    });
-  </script>
+  <script src="/script.js"></script>
 </body>
 </html>

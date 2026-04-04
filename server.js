@@ -35,13 +35,16 @@ function notifyNewRequest(request) {
   console.log('\n========== NEW LEAD ==========');
   console.log(`Name    : ${request.name}`);
   console.log(`PHONE   : ${request.phone}`);
+  console.log(`Email   : ${request.email}`);
   console.log(`Address : ${request.address}`);
+  console.log(`Vehicle : ${request.vehicle}`);
   console.log(`Date    : ${request.date}`);
   console.log(`SERVICE : ${request.serviceType}`);
+  console.log(`Notes   : ${request.notes}`);
   console.log(`Status  : ${request.status}`);
   console.log('------------------------------');
   console.log(
-    `Quick Copy: ${request.name} | ${request.phone} | ${request.serviceType} | ${request.date}`
+    `Quick Copy: ${request.name} | ${request.phone} | ${request.vehicle} | ${request.serviceType} | ${request.date}`
   );
   console.log('==============================\n');
 }
@@ -59,13 +62,16 @@ function isFutureDate(dateString) {
 app.post('/api/requests', (req, res) => {
   const name = req.body.name ? req.body.name.trim() : '';
   const phone = req.body.phone ? req.body.phone.trim() : '';
+  const email = req.body.email ? req.body.email.trim() : '';
   const address = req.body.address ? req.body.address.trim() : '';
+  const vehicle = req.body.vehicle ? req.body.vehicle.trim() : '';
   const date = req.body.date ? req.body.date.trim() : '';
   const serviceType = req.body.serviceType ? req.body.serviceType.trim() : '';
+  const notes = req.body.notes ? req.body.notes.trim() : '';
 
-  if (!name || !phone || !address || !serviceType) {
+  if (!name || !phone || !email || !address || !vehicle || !serviceType) {
     return res.status(400).json({
-      message: 'Name, phone, address, and service type are required.'
+      message: 'Name, phone, email, address, vehicle, and service type are required.'
     });
   }
 
@@ -85,9 +91,12 @@ app.post('/api/requests', (req, res) => {
     id: requests.length > 0 ? requests[requests.length - 1].id + 1 : 1,
     name,
     phone,
+    email,
     address,
+    vehicle,
     date,
     serviceType,
+    notes,
     status: 'pending'
   };
 
