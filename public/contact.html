@@ -53,7 +53,17 @@
           <p class="eyebrow">Fast Quote Form</p>
           <h2 id="quote-form">Get Instant Quote</h2>
 
-          <form id="leadForm" class="lead-form">
+          <form
+            id="leadForm"
+            class="lead-form"
+            name="booking-request"
+            method="POST"
+            action="/thank-you.html"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+          >
+            <input type="hidden" name="form-name" value="booking-request">
+            <input type="hidden" name="bot-field">
             <label>
               Full name
               <input type="text" name="name" placeholder="Your full name" required>

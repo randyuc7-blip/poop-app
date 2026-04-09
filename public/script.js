@@ -32,36 +32,43 @@ if (phoneInput) {
 }
 
 if (leadForm) {
-  leadForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
+  const isLocalPreview =
+    window.location.hostname === 'localhost' ||
+    window.location.hostname === '127.0.0.1';
+  const formEndpoint = isLocalPreview ? '/api/requests' : leadForm.dataset.endpoint;
 
-    successMessage.style.display = 'none';
-    errorMessage.style.display = 'none';
+  if (formEndpoint) {
+    leadForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
 
-    const formData = new FormData(leadForm);
-    const data = Object.fromEntries(formData.entries());
+      successMessage.style.display = 'none';
+      errorMessage.style.display = 'none';
 
-    try {
-      const response = await fetch('/api/requests', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      });
+      const formData = new FormData(leadForm);
+      const data = Object.fromEntries(formData.entries());
 
-      if (!response.ok) {
-        throw new Error('Request failed');
+      try {
+        const response = await fetch(formEndpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        if (!response.ok) {
+          throw new Error('Request failed');
+        }
+
+        successMessage.textContent =
+          `Thanks, ${data.name}. Your request is in. We will reach out shortly to confirm your ${data.serviceType || 'detail'}.`;
+        successMessage.style.display = 'block';
+        leadForm.reset();
+      } catch (error) {
+        errorMessage.style.display = 'block';
       }
-
-      successMessage.textContent =
-        `Thanks, ${data.name}. Your request is in. We will reach out shortly to confirm your ${data.serviceType || 'detail'}.`;
-      successMessage.style.display = 'block';
-      leadForm.reset();
-    } catch (error) {
-      errorMessage.style.display = 'block';
-    }
-  });
+    });
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
