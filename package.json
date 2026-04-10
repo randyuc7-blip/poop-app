@@ -1,7 +1,7 @@
 {
   "name": "poop-app",
   "version": "1.0.0",
-  "description": "Simple dog poop pickup scheduling app",
+  "description": "Reusable lead capture website template for Netlify-hosted service businesses",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

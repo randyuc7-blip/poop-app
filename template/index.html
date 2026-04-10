@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lead Capture System Template</title>
+  <meta
+    name="description"
+    content="Reusable lead capture website template for service businesses. Netlify-ready, configurable, and simple to deploy."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="/styles/base.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="/">
+        <span class="brand-mark" data-brand-initials>LC</span>
+        <span>
+          <strong data-business-name>Lead Capture Co.</strong>
+          <small data-business-tagline>Reusable website template</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
+
+      <nav class="site-nav" id="site-nav">
+        <a href="#services">Services</a>
+        <a href="#process">How It Works</a>
+        <a href="#results">Results</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#about">About</a>
+        <a href="#lead-form" class="button button-primary button-nav" data-primary-cta>Get A Quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow" data-hero-eyebrow>Service Business Growth Template</p>
+          <h1 data-hero-title>Turn visits into leads with a website that is ready to sell.</h1>
+          <p class="lead" data-hero-description>
+            A premium-looking service business template with real lead capture built in. Clone it, brand it,
+            deploy it, and start collecting leads without needing a custom backend.
+          </p>
+
+          <div class="cta-row">
+            <a class="button button-primary" href="#lead-form" data-primary-cta>Get A Quote</a>
+            <a class="button button-secondary" href="#services" data-secondary-cta>See Services</a>
+          </div>
+
+          <div class="trust-row" id="trust-cards"></div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-top">
+            <span data-highlight-label>Best fit</span>
+            <strong data-highlight-title>Local service businesses</strong>
+          </div>
+          <ul class="feature-list" id="highlight-points"></ul>
+          <a class="button button-primary button-block" href="#lead-form" data-highlight-cta>Start Capturing Leads</a>
+          <p class="helper-text">
+            Email: <a data-contact-email-link href="mailto:hello@example.com">hello@example.com</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow" data-benefits-eyebrow>Why This Template Works</p>
+          <h2 data-benefits-title>Built around clarity, trust, and fast follow-up.</h2>
+        </div>
+
+        <div class="card-grid three-up" id="benefit-cards"></div>
+      </div>
+    </section>
+
+    <section class="section accent-section" id="services">
+      <div class="container split-layout">
+        <div>
+          <p class="eyebrow" data-services-eyebrow>Offer Structure</p>
+          <h2 data-services-title>Simple packages or services people understand fast.</h2>
+          <p class="section-text" data-services-description>
+            Use this section for your primary offers, plans, or service tiers. Keep it clear so prospects know what to do next.
+          </p>
+        </div>
+
+        <div class="package-stack" id="service-cards"></div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow" data-process-eyebrow>How It Works</p>
+          <h2 data-process-title>Three simple steps from first click to qualified lead.</h2>
+        </div>
+
+        <div class="steps-grid" id="process-steps"></div>
+
+        <div class="centered-cta">
+          <a class="button button-primary" href="#lead-form" data-primary-cta>Get A Quote</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="results">
+      <div class="container results-strip">
+        <div class="section-heading section-heading-light">
+          <p class="eyebrow" data-results-eyebrow>Proof</p>
+          <h2 data-results-title>The layout is designed to support action, not just look good.</h2>
+          <p class="section-text" data-results-description>
+            Swap these placeholders for project photos, product screenshots, before-and-after visuals, or work samples.
+          </p>
+        </div>
+
+        <div class="gallery-preview" id="proof-gallery"></div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews">
+      <div class="container split-layout">
+        <div>
+          <p class="eyebrow" data-testimonials-eyebrow>Testimonials</p>
+          <h2 data-testimonials-title>Use social proof to reduce hesitation fast.</h2>
+          <p class="section-text" data-testimonials-description>
+            Replace these quotes with reviews from your client, screenshots, or a stronger proof section for the industry.
+          </p>
+        </div>
+
+        <div class="review-stack" id="testimonial-cards"></div>
+      </div>
+    </section>
+
+    <section class="section accent-section" id="about">
+      <div class="container split-layout">
+        <div>
+          <p class="eyebrow" data-about-eyebrow>About</p>
+          <h2 data-about-title>This section is ready for the owner story, trust angle, or brand promise.</h2>
+        </div>
+        <div class="promise-card">
+          <p data-about-description>
+            Keep this short. For most local service businesses, clarity, professionalism, and proof will convert better than long paragraphs.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="lead-form">
+      <div class="container booking-layout">
+        <div class="booking-card">
+          <p class="eyebrow" data-form-eyebrow>Lead Form</p>
+          <h2 data-form-title>Request a quote or book a call.</h2>
+          <p class="section-text" data-form-description>
+            This form works with Netlify Forms by default and can optionally send leads to a webhook too.
+          </p>
+
+          <div id="lead-form-root"></div>
+
+          <form
+            name="lead-capture"
+            method="POST"
+            action="/thank-you.html"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            hidden
+          >
+            <input type="hidden" name="form-name" value="lead-capture">
+            <input type="text" name="name">
+            <input type="email" name="email">
+            <input type="tel" name="phone">
+            <input type="text" name="company">
+            <input type="text" name="service">
+            <input type="text" name="budget">
+            <input type="text" name="timeline">
+            <input type="text" name="address">
+            <input type="text" name="vehicle">
+            <textarea name="message"></textarea>
+            <textarea name="notes"></textarea>
+            <input type="text" name="bot-field">
+          </form>
+        </div>
+
+        <aside class="contact-sidebar">
+          <div class="sidebar-card">
+            <p class="eyebrow">Template Features</p>
+            <ul class="feature-list" id="feature-points"></ul>
+          </div>
+
+          <div class="sidebar-card">
+            <p class="eyebrow">Contact</p>
+            <a data-contact-phone-link href="tel:+15555550123">(555) 555-0123</a>
+            <a data-contact-email-link href="mailto:hello@example.com">hello@example.com</a>
+            <a data-contact-cta-link href="#lead-form">Book A Discovery Call</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section callout-section">
+      <div class="container callout-shell">
+        <div>
+          <p class="eyebrow" data-final-eyebrow>Ready To Clone</p>
+          <h2 data-final-title>Use this as your repeatable website plus lead system in a box.</h2>
+        </div>
+        <div class="cta-row">
+          <a class="button button-primary" href="#lead-form" data-primary-cta>Get A Quote</a>
+          <a class="button button-secondary" href="mailto:hello@example.com" data-contact-email-button>Email Us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand brand-footer" href="/">
+          <span class="brand-mark" data-brand-initials>LC</span>
+          <span>
+            <strong data-business-name>Lead Capture Co.</strong>
+            <small data-business-tagline>Reusable website template</small>
+          </span>
+        </a>
+        <p data-footer-description>
+          A reusable lead capture template for service businesses that need fast setup and dependable form handling.
+        </p>
+      </div>
+      <div>
+        <h3>Sections</h3>
+        <a href="#services">Services</a>
+        <a href="#process">How It Works</a>
+        <a href="#reviews">Reviews</a>
+      </div>
+      <div>
+        <h3>Template</h3>
+        <a href="#about">About</a>
+        <a href="#lead-form">Lead Form</a>
+        <a href="/thank-you.html">Thank You Page</a>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <a data-contact-phone-link href="tel:+15555550123">(555) 555-0123</a>
+        <a data-contact-email-link href="mailto:hello@example.com">hello@example.com</a>
+        <a data-contact-cta-link href="#lead-form">Book A Call</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/app.js"></script>
+</body>
+</html>
