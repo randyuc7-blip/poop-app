@@ -90,15 +90,13 @@ function buildWebhookPayload(formData) {
 }
 
 export function mountLeadForm(root, formConfig, webhookConfig = {}) {
-  const fallbackAction = formConfig.redirectUrl || '/';
-
   root.innerHTML = `
     <form
       id="leadCaptureForm"
       class="lead-form"
       name="${escapeHtml(formConfig.name)}"
       method="POST"
-      action="${escapeHtml(fallbackAction)}"
+      action="/"
       data-netlify="true"
       netlify-honeypot="bot-field"
     >
@@ -133,17 +131,13 @@ export function mountLeadForm(root, formConfig, webhookConfig = {}) {
     const webhookPayload = buildWebhookPayload(formData);
 
     try {
-      const response = await fetch(formConfig.endpoint || '/', {
+      await fetch(formConfig.endpoint || '/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
         },
         body
       });
-
-      if (!response.ok) {
-        throw new Error('Netlify form submission failed.');
-      }
 
       successMessage.textContent = `${formConfig.successTitle} ${formConfig.successMessage}`.trim();
       successMessage.style.display = 'block';
@@ -157,14 +151,9 @@ export function mountLeadForm(root, formConfig, webhookConfig = {}) {
         window.location.href = formConfig.redirectUrl;
       }
     } catch (error) {
-      console.warn('AJAX form submission failed. Falling back to native Netlify submit.', error);
-
-      if (webhookEnabled) {
-        postToWebhook(webhookConfig.url, webhookPayload);
-      }
-
-      HTMLFormElement.prototype.submit.call(form);
-      return;
+      console.warn('Netlify form submission failed.', error);
+      errorMessage.textContent = 'Something went wrong while sending the form. Please try again.';
+      errorMessage.style.display = 'block';
     } finally {
       submitButton.disabled = false;
       submitButton.textContent = formConfig.submitLabel;
