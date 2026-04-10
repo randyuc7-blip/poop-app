@@ -55,9 +55,7 @@ function renderField(field) {
 }
 
 function encodeFormData(data) {
-  return Object.entries(data)
-    .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
-    .join('&');
+  return new URLSearchParams(data).toString();
 }
 
 async function postToWebhook(url, payload) {
@@ -72,6 +70,7 @@ async function postToWebhook(url, payload) {
         'Content-Type': 'application/json'
       },
       mode: 'no-cors',
+      keepalive: true,
       body: JSON.stringify(payload)
     });
   } catch (error) {
@@ -129,6 +128,7 @@ export function mountLeadForm(root, formConfig, webhookConfig = {}) {
     const formData = new FormData(form);
     const payload = Object.fromEntries(formData.entries());
     const body = encodeFormData(payload);
+    const webhookPayload = buildWebhookPayload(formData);
 
     try {
       const response = await fetch(formConfig.endpoint || '/', {
@@ -148,7 +148,6 @@ export function mountLeadForm(root, formConfig, webhookConfig = {}) {
       form.reset();
 
       if (webhookEnabled) {
-        const webhookPayload = buildWebhookPayload(formData);
         postToWebhook(webhookConfig.url, webhookPayload);
       }
 
@@ -156,8 +155,14 @@ export function mountLeadForm(root, formConfig, webhookConfig = {}) {
         window.location.href = formConfig.redirectUrl;
       }
     } catch (error) {
-      errorMessage.textContent = 'Something went wrong while sending the form. Please try again.';
-      errorMessage.style.display = 'block';
+      console.warn('AJAX form submission failed. Falling back to native Netlify submit.', error);
+
+      if (webhookEnabled) {
+        postToWebhook(webhookConfig.url, webhookPayload);
+      }
+
+      HTMLFormElement.prototype.submit.call(form);
+      return;
     } finally {
       submitButton.disabled = false;
       submitButton.textContent = formConfig.submitLabel;
