@@ -90,13 +90,15 @@ function buildWebhookPayload(formData) {
 }
 
 export function mountLeadForm(root, formConfig, webhookConfig = {}) {
+  const successRedirect = formConfig.redirectUrl || '/thank-you.html';
+
   root.innerHTML = `
     <form
       id="leadCaptureForm"
       class="lead-form"
       name="${escapeHtml(formConfig.name)}"
       method="POST"
-      action="/"
+      action="${escapeHtml(successRedirect)}"
       data-netlify="true"
       netlify-honeypot="bot-field"
     >
@@ -147,9 +149,7 @@ export function mountLeadForm(root, formConfig, webhookConfig = {}) {
         postToWebhook(webhookConfig.url, webhookPayload);
       }
 
-      if (formConfig.redirectUrl) {
-        window.location.href = formConfig.redirectUrl;
-      }
+      window.location.href = successRedirect;
     } catch (error) {
       console.warn('Netlify form submission failed.', error);
       errorMessage.textContent = 'Something went wrong while sending the form. Please try again.';
