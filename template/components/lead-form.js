@@ -90,13 +90,15 @@ function buildWebhookPayload(formData) {
 }
 
 export function mountLeadForm(root, formConfig, webhookConfig = {}) {
+  const fallbackAction = formConfig.redirectUrl || '/';
+
   root.innerHTML = `
     <form
       id="leadCaptureForm"
       class="lead-form"
       name="${escapeHtml(formConfig.name)}"
       method="POST"
-      action="/thank-you.html"
+      action="${escapeHtml(fallbackAction)}"
       data-netlify="true"
       netlify-honeypot="bot-field"
     >

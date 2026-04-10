@@ -160,7 +160,7 @@ export const siteConfig = {
   form: {
     name: 'lead-capture',
     endpoint: '/',
-    redirectUrl: '',
+    redirectUrl: '/',
     title: 'Request a quote or book a call.',
     description: 'This form works with Netlify Forms by default and can optionally send leads to a webhook too.',
     successTitle: 'Thanks. Your request is in.',
