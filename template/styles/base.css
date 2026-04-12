@@ -367,17 +367,21 @@ textarea {
   align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .package-head h3 {
   margin: 0;
   font-family: "Plus Jakarta Sans", sans-serif;
+  flex: 1 1 180px;
 }
 
 .package-head span {
   color: var(--primary-dark);
   font-weight: 800;
-  white-space: nowrap;
+  flex: 0 1 auto;
+  min-width: fit-content;
+  text-align: right;
 }
 
 .step-card span {
